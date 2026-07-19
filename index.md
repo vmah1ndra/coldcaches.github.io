@@ -8,9 +8,8 @@ Find me [here](https://vmah1ndra.github.io).
 ## Posts
 <ul>
   {% for post in site.posts %}
-    {% assign sliced_array = post.url | slice: 0, 26 %}
     {% assign url_parts = post.url | slice: 0, 26 %}
-    {% assign new_url = url_parts | join: "/coldcaches" %}
+    {% capture new_url %}https://vmah1ndra.github.io/coldcaches/{{ url_parts }}{% endcapture %}
     <li>
       <a href="{{ new_url }}">{{ post.title }}</a>
     </li>
@@ -26,7 +25,7 @@ Find me [here](https://vmah1ndra.github.io).
     {% assign url_parts = post.url | slice: 0, 26 %}
     {% capture new_url %}https://vmah1ndra.github.io/coldcaches/{{ url_parts }}{% endcapture %}
     <li>
-      <a href="{{ new_url }}">{{ post.title }} {{ url_parts }} {{ new_url }}</a>
+      <a href="{{ new_url }}">{{ post.title }}</a>
     </li>
     {% endfor %}
   </ul>
