@@ -6,11 +6,13 @@ title: "Holme"
 Find me [here](https://vmah1ndra.github.io).
 
 ## Posts
-
 <ul>
   {% for post in site.posts %}
+    {% assign sliced_array = post.url | slice: 0, 26 %}
+    {% assign url_parts = post.url | slice: 0, 26 %}
+    {% assign new_url = url_parts | join: "/coldcaches" %}
     <li>
-      <a href="{{ post.url }}">{{ post.title }}</a>
+      <a href="{{ new_url }}">{{ post.title }}</a>
     </li>
   {% endfor %}
 </ul>
@@ -21,7 +23,11 @@ Find me [here](https://vmah1ndra.github.io).
   <h3>{{ tag[0] }}</h3>
   <ul>
     {% for post in tag[1] %}
-      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% assign url_parts = post.url | slice: 0, 26 %}
+    {% assign new_url = url_parts | join: "/coldcaches" %}
+    <li>
+      <a href="{{ new_url }}">{{ post.title }}</a>
+    </li>
     {% endfor %}
   </ul>
 {% endfor %}
